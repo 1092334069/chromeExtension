@@ -1,0 +1,50 @@
+.chartapply-tool-body{
+    position: relative;
+}
+.chartapply-tool-drag{
+    position: fixed;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    cursor: crosshair;
+    z-index: 9999;
+}
+.chartapply-tool-drag.init{
+    background-color: rgba(0,0,0,0.35);
+}
+.chartapply-tool-drag.disable{
+    display: none;
+}
+.chartapply-tool-drag .diamonds{
+    background-color: rgba(0,0,0,0.35);
+    position: absolute;
+}
+.chartapply-tool-drag .tool-result{
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    display: flex;
+    justify-content: space-around;
+    padding: 16px 0;
+}
+.chartapply-tool-drag .tool-result .button{
+    width: 80px;
+    height: 32px;
+    line-height: 32px;
+    text-align: center;
+    font-size: 16px;
+    color: #fff;
+    cursor: pointer;
+    border-radius: 4px;
+}
+.chartapply-tool-drag .button.success{
+    background-color: #19be6b;
+}
+.chartapply-tool-drag .button.rebuild{
+    background-color: #ff9900;
+}
+.chartapply-tool-drag .button.cancel{
+    background-color: #ed4014;
+}

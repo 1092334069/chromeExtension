@@ -1,0 +1,40 @@
+{
+    "name": "微页面收集工具",
+    "version": "1.0.0",
+    "manifest_version": 2,
+    "description": "收集分析代码",
+    "icons": {
+        "48": "image/logo.jpg"
+    },
+    "browser_action": {
+        "default_popup": "browser.html",
+        "default_title": "微页面收集工具",
+        "default_icon": {
+            "48": "image/logo.jpg"
+        }
+    },
+    "background": {
+        "page": "background.html"
+    },
+    "options_page": "preferences.html",
+    "minimum_chrome_version": "26",
+    "permissions": [
+        "notifications",
+        "http://*/*",
+        "https://*/*"
+    ],
+    "content_scripts": [{
+        "matches": ["http://*/*", "https://*/*"],
+        "js": [
+            "js/jquery.min.js",
+            "js/analyDom.js",
+            "js/coordinate.js",
+            "js/drag.js",
+            "js/collectCut.js",
+            "js/collectAll.js",
+            "js/commonEvent.js"
+        ],
+        "css": ["css/drag.css"],
+        "run_at": "document_start"
+    }]
+}

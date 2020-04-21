@@ -1,0 +1,65 @@
+body{
+    width: 375px;
+    background-color: #ffffff;
+}
+.hidden{
+    display: none;
+}
+.title{
+    padding: 16px;
+    font-size: 18px;
+    text-align: center;
+}
+.login{
+    padding-bottom: 32px;
+}
+.login .form{
+    padding: 20px 16px;
+}
+.login li{
+    padding: 8px 0 8px 80px;
+    position: relative;
+}
+.login .label{
+    width: 60px;
+    text-align: right;
+    position: absolute;
+    left: 0;
+    top: 8px;
+    font-size: 14px;
+    color: #333333;
+    padding: 8px 0;
+    display: inline-block;
+}
+.login input{
+    height: 26px;
+    line-height: 26px;
+    width: 180px;
+}
+.login .btn{
+    background-color: #2d8cf0;
+    width: 56px;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    margin: auto;
+    color: #ffffff;
+    font-size: 14px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+.login .btn:hover{
+    background-color: #138ed4;
+}
+.menu{
+    padding: 0 16px 32px;
+    font-size: 14px;
+}
+.menu li{
+    margin: 10px 0;
+    padding: 8px;
+    cursor: pointer;
+}
+.menu li:hover{
+    background-color: #f2f2f2;
+}
