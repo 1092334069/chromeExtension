@@ -5,6 +5,7 @@
 
     coordinate.prototype.getCoordinateData = function(initDom) {
         var domData = this.parseCoordinate(0, initDom)
+        console.log(domData)
         return domData
     }
 
@@ -33,6 +34,20 @@
                 }
             }
         }
+
+        // 当子元素尺寸大于父元素尺寸时判断出有内滚动条的情况，需方向修复坐标尺寸
+        let right = parseInt(domCoordinate.site.right)
+        let bottom = parseInt(domCoordinate.site.bottom)
+        for (let i = 0; i < domCoordinate.childList.length; i++) {
+            if (right < domCoordinate.childList[i].site.right) {
+                right = parseInt(domCoordinate.childList[i].site.right)
+            }
+            if (bottom < domCoordinate.childList[i].site.bottom) {
+                bottom = parseInt(domCoordinate.childList[i].site.bottom)
+            }
+        }
+        domCoordinate.site.right = right
+        domCoordinate.site.bottom = bottom
 
         return domCoordinate
     }

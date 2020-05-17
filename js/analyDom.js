@@ -659,6 +659,7 @@
     analyDom.prototype.parseStyleValue = function(styleObj, nodeName) {
         var tempObject = {}
         for (var key in styleObj) {
+            // 后续需要转base64
             if (key === 'backgroundImage' && styleObj[key]) {
                 tempObject[key] = styleObj[key].replace('url("','').replace('")', '')
                 continue
@@ -672,7 +673,7 @@
             if (nodeName !== 'INPUT' && key === 'caretColor') {
                 continue
             }
-            if (styleObj['static'] === 'static' && (key === 'top' || key === 'left' || key === 'right' || key === 'bottom' || key === 'zIndex')) {
+            if (styleObj['position'] === 'static' && (key === 'top' || key === 'left' || key === 'right' || key === 'bottom' || key === 'zIndex')) {
                 continue
             }
             tempObject[key] = styleObj[key]

@@ -33,16 +33,20 @@
 
         $('#chartapplyToolDrag').on('touchstart', function(e) {
             var touch = e.originalEvent.targetTouches[0]
-            site.left = touch.pageX
-            site.top = touch.pageY
+            // site.left = touch.pageX
+            // site.top = touch.pageY
+            site.left = touch.clientX
+            site.top = touch.clientY
             isDrag = true
         })
 
         $('#chartapplyToolDrag').on('touchmove', function(e) {
             if (isDrag) {
                 var touch = e.originalEvent.targetTouches[0]
-                site.right = touch.pageX + document.documentElement.scrollTop
-                site.bottom = touch.pageY + document.documentElement.scrollLeft
+                // site.right = touch.pageX + document.documentElement.scrollTop
+                // site.bottom = touch.pageY + document.documentElement.scrollLeft
+                site.right = touch.clientX
+                site.bottom = touch.clientY
                 _this.buildSite(site)
             }
         })
@@ -53,7 +57,16 @@
         })
 
         $('#chartapplyToolDrag').on('touchstart', '.success', function(e) {
-            _this.option.callback(site)
+            const scrollTop = parseInt(document.documentElement.scrollTop)
+            const scrollLeft = parseInt(document.documentElement.scrollLeft)
+            const resultSite = {
+                left: parseInt(site.left) + scrollLeft,
+                right: parseInt(site.right) + scrollLeft,
+                top: parseInt(site.top) + scrollTop,
+                bottom: parseInt(site.bottom) + scrollTop
+            }
+            console.log(resultSite)
+            _this.option.callback(resultSite)
             _this.disable()
             e.preventDefault()
             e.stopPropagation()
